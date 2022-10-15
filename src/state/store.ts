@@ -1,8 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
+import userSlice from '../modules/Authentication/state/slice';
 
 function createApplicationStore() {
   const store = configureStore({
-    reducer: {},
+    reducer: {
+      user: userSlice.reducer,
+    },
   });
 
   return {

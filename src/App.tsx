@@ -1,5 +1,5 @@
 import React, { StrictMode } from 'react';
-import './App.css';
+import './global.css';
 import ApplicationProvider from './providers/ApplicationProvider';
 import Routes from './Routes';
 
