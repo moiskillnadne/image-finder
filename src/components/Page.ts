@@ -1,8 +1,16 @@
-import styled from 'styled-components';
-import { background } from '../constants/colors.constants';
+import styled, { css } from 'styled-components';
 
-export const PageContainer = styled.div`
+interface PageContainer {
+  colorized?: string;
+}
+
+export const PageContainer = styled.div<PageContainer>`
   width: 100%;
   height: 100vh;
-  background-color: ${background};
+
+  ${props =>
+    props.colorized &&
+    css`
+      background-color: ${props.colorized};
+    `}
 `;

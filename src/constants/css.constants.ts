@@ -1,1 +1,3 @@
-export const borderRadius = 4;
+export const defaultBorderRadius = 4;
+export const defaultPadding = 6;
+export const defaultHorizontalPadding = defaultPadding * 3;
