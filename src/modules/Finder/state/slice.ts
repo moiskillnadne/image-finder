@@ -32,12 +32,14 @@ export interface IImageResult {
 
 interface RequestData {
   processing: boolean;
+  resultsBySearch: string;
 }
 
 const initialState = {
   search: '',
   requestData: {
     processing: false,
+    resultsBySearch: '',
   },
   images: [],
 } as IFinderState;
@@ -55,9 +57,13 @@ const finderSlice = createSlice({
     setRequestProcessing: (state, action: PayloadAction<boolean>) => {
       state.requestData.processing = action.payload;
     },
+    setResultsBySearch: (state, action: PayloadAction<string>) => {
+      state.requestData.resultsBySearch = action.payload;
+    },
   },
 });
 
-export const { setSearch, setResults, setRequestProcessing } = finderSlice.actions;
+export const { setSearch, setResults, setRequestProcessing, setResultsBySearch } =
+  finderSlice.actions;
 
 export default finderSlice;

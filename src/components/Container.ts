@@ -1,10 +1,12 @@
 import styled, { css } from 'styled-components';
+import { BorderRound } from '../types/borderRound.type';
 import { FlexAlign, FlexDirection } from '../types/flex.type';
 import { Padding } from '../types/padding.types';
 import { SizeProp } from '../types/size.type';
 
 interface ContainerProps {
   flex?: boolean;
+  flexPart?: number;
   flexDirection?: FlexDirection;
   flexWrap?: boolean;
   gap?: number;
@@ -14,6 +16,7 @@ interface ContainerProps {
   customWidth?: SizeProp;
   colorized?: string;
   padding?: Padding;
+  round?: BorderRound;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -22,6 +25,36 @@ export const Container = styled.div<ContainerProps>`
     props.customWidth?.metric &&
     css`
       width: ${props.customWidth?.value}${props.customWidth?.metric};
+    `}
+
+  ${props =>
+    props.flexPart &&
+    css`
+      flex: ${props.flexPart};
+    `}
+
+  ${props =>
+    props.round?.upperLeft &&
+    css`
+      border-top-left-radius: ${props.round?.upperLeft}px;
+    `}
+  
+  ${props =>
+    props.round?.upperRight &&
+    css`
+      border-top-right-radius: ${props.round?.upperRight}px;
+    `}
+  
+  ${props =>
+    props.round?.lowerLeft &&
+    css`
+      border-bottom-left-radius: ${props.round?.lowerLeft}px;
+    `}
+  
+  ${props =>
+    props.round?.lowerRight &&
+    css`
+      border-bottom-right-radius: ${props.round?.lowerRight}px;
     `}
 
   ${props =>

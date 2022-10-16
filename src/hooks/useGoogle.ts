@@ -4,6 +4,7 @@ import {
   IImageResult,
   setRequestProcessing,
   setResults,
+  setResultsBySearch,
   setSearch,
 } from '../modules/Finder/state/slice';
 import { useAppDispatch } from './useAppDispatch';
@@ -37,6 +38,7 @@ export const useGoogle = () => {
   const search = useAppSelector(state => state.finder.search);
   const images = useAppSelector(state => state.finder.images);
   const requestProcessing = useAppSelector(state => state.finder.requestData.processing);
+  const resultsBySearch = useAppSelector(state => state.finder.requestData.resultsBySearch);
 
   const saveSearch = useCallback(
     (searchValue: string) => {
@@ -47,8 +49,9 @@ export const useGoogle = () => {
   const changeRequestProcessingStatus = useCallback(
     (status: boolean) => {
       dispath(setRequestProcessing(status));
+      dispath(setResultsBySearch(search));
     },
-    [dispath],
+    [dispath, search],
   );
 
   const saveImageResults = useCallback(
@@ -67,6 +70,7 @@ export const useGoogle = () => {
 
   return {
     search,
+    resultsBySearch,
     images,
     saveSearch,
     changeRequestProcessingStatus,
