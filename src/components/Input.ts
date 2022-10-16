@@ -1,9 +1,11 @@
 import styled, { css } from 'styled-components';
 import { font } from '../constants/colors.constants';
 import { BorderRound } from '../types/borderRound.type';
+import { SizeProp } from '../types/size.type';
 
 interface InputProps {
   round?: BorderRound;
+  customWidth?: SizeProp;
 }
 
 export const Input = styled.input<InputProps>`
@@ -21,6 +23,13 @@ export const Input = styled.input<InputProps>`
   caret-color: rgba(0, 0, 0, 0.5);
 
   transition: 0.2s;
+
+  ${props =>
+    props.customWidth?.metric &&
+    props.customWidth.value &&
+    css`
+      width: ${props.customWidth.value}${props.customWidth?.metric};
+    `}
 
   ${props =>
     props.round?.upperLeft &&

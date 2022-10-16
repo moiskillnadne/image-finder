@@ -1,24 +1,33 @@
 import styled, { css } from 'styled-components';
+import { FlexAlign, FlexDirection } from '../types/flex.type';
 import { Padding } from '../types/padding.types';
+import { SizeProp } from '../types/size.type';
 
 interface ContainerProps {
-  fullWidth?: boolean;
   flex?: boolean;
-  verticalCenter?: boolean;
-  horizontalCenter?: boolean;
-  horizintalSpaceBetween?: boolean;
-  height?: number;
+  flexDirection?: FlexDirection;
+  flexWrap?: boolean;
+  gap?: number;
+  verticalAlign?: FlexAlign;
+  horizontalAlign?: FlexAlign;
+  customHeight?: SizeProp;
+  customWidth?: SizeProp;
   colorized?: string;
   padding?: Padding;
 }
 
 export const Container = styled.div<ContainerProps>`
-  height: 100%;
+  ${props =>
+    props.customWidth?.value &&
+    props.customWidth?.metric &&
+    css`
+      width: ${props.customWidth?.value}${props.customWidth?.metric};
+    `}
 
   ${props =>
-    props.fullWidth &&
+    props.gap &&
     css`
-      width: 100%;
+      gap: ${props.gap}px;
     `}
 
   ${props =>
@@ -28,27 +37,35 @@ export const Container = styled.div<ContainerProps>`
     `}
 
   ${props =>
-    props.verticalCenter &&
+    props.verticalAlign &&
     css`
-      align-items: center;
+      align-items: ${props.verticalAlign};
     `}
 
   ${props =>
-    props.horizontalCenter &&
+    props.horizontalAlign &&
     css`
-      justify-content: center;
+      justify-content: ${props.horizontalAlign};
+    `}
+
+
+  ${props =>
+    props.flexDirection &&
+    css`
+      flex-direction: ${props.flexDirection};
     `}
 
   ${props =>
-    props.horizintalSpaceBetween &&
+    props.flexWrap &&
     css`
-      justify-content: space-between;
+      flex-flow: wrap;
     `}
 
   ${props =>
-    props.height &&
+    props.customHeight?.value &&
+    props.customHeight?.metric &&
     css`
-      height: ${props.height}px;
+      height: ${props.customHeight?.value}${props.customHeight?.metric};
     `}
 
   ${props =>
