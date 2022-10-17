@@ -5,6 +5,7 @@ import { HeaderL } from '../../components/Header';
 import { Input } from '../../components/Input';
 import { background } from '../../constants/colors.constants';
 import { defaultHorizontalPadding, defaultBorderRadius } from '../../constants/css.constants';
+import { Dictionary } from '../../constants/Dictionary';
 import { useAuth } from '../../hooks/useAuth';
 import { useGoogle } from '../../hooks/useGoogle';
 
@@ -44,20 +45,22 @@ export const FinderHeader = () => {
         verticalAlign="center"
         horizontalAlign="space-between">
         <div>
-          <HeaderL>{greetings}</HeaderL>
+          <HeaderL data-testid="finder_greetings_header">{greetings}</HeaderL>
         </div>
         <div>
           <Input
-            placeholder="What are you looking for?"
+            data-testid="search_input"
+            placeholder={Dictionary.SearchInputPlaceholder}
             customWidth={{ value: 250, metric: 'px' }}
             value={search}
             onChange={onSearchChange}
             onKeyDown={onSearchEnterKeyPress}
           />
-          <Button onClick={onSearchButtonClick}>search</Button>
+          <Button onClick={onSearchButtonClick}>{Dictionary.SearchButton}</Button>
         </div>
         <div>
           <Button
+            data-testid="signout_button"
             onClick={onSignoutClick}
             round={{
               upperRight: defaultBorderRadius,
@@ -65,7 +68,7 @@ export const FinderHeader = () => {
               lowerLeft: defaultBorderRadius,
               lowerRight: defaultBorderRadius,
             }}>
-            Sign out
+            {Dictionary.SignOutButton}
           </Button>
         </div>
       </Container>

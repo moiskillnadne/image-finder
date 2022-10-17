@@ -2,7 +2,7 @@ export const takeWordFromSentence = (sentence: string, countOfWord: number): str
   return sentence
     .split(' ')
     .reduce((acc, word) => {
-      if (acc.length <= countOfWord) {
+      if (acc.length < countOfWord) {
         acc.push(word);
       }
 
