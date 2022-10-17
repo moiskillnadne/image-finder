@@ -2,9 +2,17 @@ import { render, screen } from "@testing-library/react"
 import { Finder } from "."
 import { Dictionary } from "../../constants/Dictionary"
 import ApplicationProvider from "../../providers/ApplicationProvider"
-
 describe("Finder page", () => {
   beforeEach(() => {
+    Object.defineProperty(window, "scrollTo", {
+      value: jest.fn(),
+    })
+
+    Object.defineProperty(window, "matchMedia", {
+      writable: true,
+      value: jest.fn(() => ({ matches: false, addEventListener: jest.fn(), removeEventListener: jest.fn() })),
+    })
+
     render(
       <ApplicationProvider>
         <Finder />

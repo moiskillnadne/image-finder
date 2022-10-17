@@ -8,10 +8,12 @@ import { defaultHorizontalPadding, defaultBorderRadius } from "../../constants/c
 import { Dictionary } from "../../constants/Dictionary"
 import { useAuth } from "../../hooks/useAuth"
 import { useGoogle } from "../../hooks/useGoogle"
+import useMediaQuery from "../../hooks/useMediaQuery"
 
 export const FinderHeader = () => {
   const { user, clearUser } = useAuth()
   const { search, saveSearch, changeRequestProcessingStatus, clearSearchAndImagesState } = useGoogle()
+  const isMobile = useMediaQuery("(max-width: 560px)")
 
   const greetings = useMemo(() => `Hello, ${user}`, [user])
 
@@ -41,8 +43,9 @@ export const FinderHeader = () => {
         colorized={background}
         padding={{ left: defaultHorizontalPadding, right: defaultHorizontalPadding }}
         flex
+        flexDirection={isMobile ? "column" : "row"}
         verticalAlign="center"
-        horizontalAlign="space-between">
+        horizontalAlign={isMobile ? "space-around" : "space-between"}>
         <div>
           <HeaderL data-testid="finder_greetings_header">{greetings}</HeaderL>
         </div>

@@ -46,4 +46,9 @@ export const HeaderL = styled.h1<HeaderProps>`
     css`
       margin-right: ${props.margin?.right}px;
     `}
+
+
+  @media(max-width: 560px) {
+    font-size: 20px;
+  }
 `

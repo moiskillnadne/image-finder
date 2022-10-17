@@ -1,4 +1,4 @@
-import { useMemo } from "react"
+import { useEffect, useMemo } from "react"
 import { Container } from "../../components/Container"
 import { PageContainer } from "../../components/Page"
 import { accent } from "../../constants/colors.constants"
@@ -17,6 +17,12 @@ export const Finder = () => {
       </p>
     )
   }, [resultsBySearch])
+
+  useEffect(() => {
+    scrollTo({
+      top: 0,
+    })
+  }, [])
 
   return (
     <PageContainer>
