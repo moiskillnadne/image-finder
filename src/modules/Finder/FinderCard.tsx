@@ -1,6 +1,7 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useState } from 'react';
 import { Container } from '../../components/Container';
 import { Thumbnail } from '../../components/Image';
+import { Loader } from '../../components/Loader';
 import { background } from '../../constants/colors.constants';
 import { defaultBorderRadius } from '../../constants/css.constants';
 import { takeWordFromSentence } from '../../utils/takeWordFromSentence';
@@ -11,6 +12,9 @@ export interface FinderCardProps {
 }
 
 export const FinderCard: FunctionComponent<FinderCardProps> = ({ url, name }) => {
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
   return (
     <Container
       customHeight={{ value: 300, metric: 'px' }}
@@ -29,6 +33,16 @@ export const FinderCard: FunctionComponent<FinderCardProps> = ({ url, name }) =>
         customHeight={{ value: 250, metric: 'px' }}
         verticalAlign="center"
         horizontalAlign="center">
+        {loading && (
+          <Loader
+            loaderSize={{ value: 75, metric: 'px' }}
+            backgroundSize={{ value: 225, metric: 'px' }}
+            backgroundColor={background}
+          />
+        )}
+
+        {error && <Container>;(</Container>}
+
         <Thumbnail
           src={url}
           alt={name}
@@ -37,6 +51,13 @@ export const FinderCard: FunctionComponent<FinderCardProps> = ({ url, name }) =>
           round={{
             upperLeft: defaultBorderRadius,
             upperRight: defaultBorderRadius,
+          }}
+          onLoad={() => {
+            setLoading(false);
+          }}
+          onError={() => {
+            setError(true);
+            setLoading(false);
           }}
         />
       </Container>
