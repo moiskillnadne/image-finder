@@ -1,17 +1,16 @@
+import { FunctionComponent } from 'react';
 import { Container } from '../../components/Container';
 import { Thumbnail } from '../../components/Image';
 import { background } from '../../constants/colors.constants';
 import { defaultBorderRadius } from '../../constants/css.constants';
 import { takeWordFromSentence } from '../../utils/takeWordFromSentence';
 
-interface FinderCardProps {
+export interface FinderCardProps {
   url: string;
   name: string;
 }
 
-export const FinderCard = (props: FinderCardProps) => {
-  const { url, name } = props;
-
+export const FinderCard: FunctionComponent<FinderCardProps> = ({ url, name }) => {
   return (
     <Container
       customHeight={{ value: 300, metric: 'px' }}

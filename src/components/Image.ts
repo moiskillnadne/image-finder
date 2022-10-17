@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { BorderRound } from '../types/borderRound.type';
 import { SizeProp } from '../types/size.type';
 
-interface ImageProps {
+export interface ImageProps {
   customWidth?: SizeProp;
   customHeight?: SizeProp;
   round?: BorderRound;

@@ -11,13 +11,15 @@ import {
 } from '../modules/Finder/state/slice';
 import { useAppDispatch } from './useAppDispatch';
 import { ApiResponse } from '../types/api.type';
-const requestUrl = 'https://bing-image-search1.p.rapidapi.com/images/search';
+import { Environment } from '../constants/environment.constnts';
+
+const requestUrl = process.env[Environment.RequestUrl] || '';
 
 const options: RequestInit = {
   method: 'GET',
   headers: {
-    'X-RapidAPI-Key': '22bc6256b9mshc49168ac250da5ep1943a6jsnaa4b1d107170',
-    'X-RapidAPI-Host': 'bing-image-search1.p.rapidapi.com',
+    'X-RapidAPI-Key': process.env[Environment.RapidApiKey] || '',
+    'X-RapidAPI-Host': process.env[Environment.RapidApiHost] || '',
   },
 };
 
