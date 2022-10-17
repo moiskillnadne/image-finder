@@ -1,10 +1,10 @@
-import { Navigate, Outlet, useLocation } from 'react-router-dom';
-import { useAuth } from '../../../hooks/useAuth';
+import { Navigate, Outlet, useLocation } from "react-router-dom"
+import { useAuth } from "../../../hooks/useAuth"
 
 export const ProtectRoute = () => {
-  const { user } = useAuth();
+  const { user } = useAuth()
 
-  const location = useLocation();
+  const location = useLocation()
 
-  return user ? <Outlet /> : <Navigate to="/" state={{ from: location }} replace />;
-};
+  return user ? <Outlet /> : <Navigate to="/" state={{ from: location }} replace />
+}

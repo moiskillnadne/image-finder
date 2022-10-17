@@ -1,44 +1,43 @@
-import React, { useMemo } from 'react';
-import { Button } from '../../components/Button';
-import { Container } from '../../components/Container';
-import { HeaderL } from '../../components/Header';
-import { Input } from '../../components/Input';
-import { background } from '../../constants/colors.constants';
-import { defaultHorizontalPadding, defaultBorderRadius } from '../../constants/css.constants';
-import { Dictionary } from '../../constants/Dictionary';
-import { useAuth } from '../../hooks/useAuth';
-import { useGoogle } from '../../hooks/useGoogle';
+import React, { useMemo } from "react"
+import { Button } from "../../components/Button"
+import { Container } from "../../components/Container"
+import { HeaderL } from "../../components/Header"
+import { Input } from "../../components/Input"
+import { background } from "../../constants/colors.constants"
+import { defaultHorizontalPadding, defaultBorderRadius } from "../../constants/css.constants"
+import { Dictionary } from "../../constants/Dictionary"
+import { useAuth } from "../../hooks/useAuth"
+import { useGoogle } from "../../hooks/useGoogle"
 
 export const FinderHeader = () => {
-  const { user, clearUser } = useAuth();
-  const { search, saveSearch, changeRequestProcessingStatus, clearSearchAndImagesState } =
-    useGoogle();
+  const { user, clearUser } = useAuth()
+  const { search, saveSearch, changeRequestProcessingStatus, clearSearchAndImagesState } = useGoogle()
 
-  const greetings = useMemo(() => `Hello, ${user}`, [user]);
+  const greetings = useMemo(() => `Hello, ${user}`, [user])
 
   const onSignoutClick = () => {
-    clearUser();
-    clearSearchAndImagesState();
-  };
+    clearUser()
+    clearSearchAndImagesState()
+  }
 
   const onSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    saveSearch(e.target.value);
-  };
+    saveSearch(e.target.value)
+  }
 
   const onSearchEnterKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      changeRequestProcessingStatus(true);
+    if (e.key === "Enter") {
+      changeRequestProcessingStatus(true)
     }
-  };
+  }
 
   const onSearchButtonClick = () => {
-    changeRequestProcessingStatus(true);
-  };
+    changeRequestProcessingStatus(true)
+  }
 
   return (
     <Container>
       <Container
-        customHeight={{ value: 150, metric: 'px' }}
+        customHeight={{ value: 150, metric: "px" }}
         colorized={background}
         padding={{ left: defaultHorizontalPadding, right: defaultHorizontalPadding }}
         flex
@@ -51,7 +50,7 @@ export const FinderHeader = () => {
           <Input
             data-testid="search_input"
             placeholder={Dictionary.SearchInputPlaceholder}
-            customWidth={{ value: 250, metric: 'px' }}
+            customWidth={{ value: 250, metric: "px" }}
             value={search}
             onChange={onSearchChange}
             onKeyDown={onSearchEnterKeyPress}
@@ -73,5 +72,5 @@ export const FinderHeader = () => {
         </div>
       </Container>
     </Container>
-  );
-};
+  )
+}

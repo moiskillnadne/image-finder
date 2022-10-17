@@ -1,22 +1,22 @@
-import styled, { css } from 'styled-components';
-import { BorderRound } from '../types/borderRound.type';
-import { FlexAlign, FlexDirection } from '../types/flex.type';
-import { Padding } from '../types/padding.types';
-import { SizeProp } from '../types/size.type';
+import styled, { css } from "styled-components"
+import { BorderRound } from "../types/borderRound.type"
+import { FlexAlign, FlexDirection } from "../types/flex.type"
+import { Padding } from "../types/padding.types"
+import { SizeProp } from "../types/size.type"
 
 interface ContainerProps {
-  flex?: boolean;
-  flexPart?: number;
-  flexDirection?: FlexDirection;
-  flexWrap?: boolean;
-  gap?: number;
-  verticalAlign?: FlexAlign;
-  horizontalAlign?: FlexAlign;
-  customHeight?: SizeProp;
-  customWidth?: SizeProp;
-  colorized?: string;
-  padding?: Padding;
-  round?: BorderRound;
+  flex?: boolean
+  flexPart?: number
+  flexDirection?: FlexDirection
+  flexWrap?: boolean
+  gap?: number
+  verticalAlign?: FlexAlign
+  horizontalAlign?: FlexAlign
+  customHeight?: SizeProp
+  customWidth?: SizeProp
+  colorized?: string
+  padding?: Padding
+  round?: BorderRound
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -131,4 +131,32 @@ export const Container = styled.div<ContainerProps>`
     css`
       padding-right: ${props.padding.right}px;
     `}
-`;
+
+  
+    @media(max-width: 560px) {
+    ${props =>
+      props.padding?.bottom &&
+      css`
+        padding-bottom: ${props.padding.bottom / 2}px;
+      `}
+
+    ${props =>
+      props.padding?.top &&
+      css`
+        padding-top: ${props.padding.top / 2}px;
+      `}
+    
+      ${props =>
+      props.padding?.left &&
+      css`
+        padding-left: ${props.padding.left / 2}px;
+      `}
+    
+    
+      ${props =>
+      props.padding?.right &&
+      css`
+        padding-right: ${props.padding.right / 2}px;
+      `}
+  }
+`

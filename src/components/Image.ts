@@ -1,11 +1,11 @@
-import styled, { css } from 'styled-components';
-import { BorderRound } from '../types/borderRound.type';
-import { SizeProp } from '../types/size.type';
+import styled, { css } from "styled-components"
+import { BorderRound } from "../types/borderRound.type"
+import { SizeProp } from "../types/size.type"
 
 export interface ImageProps {
-  customWidth?: SizeProp;
-  customHeight?: SizeProp;
-  round?: BorderRound;
+  customWidth?: SizeProp
+  customHeight?: SizeProp
+  round?: BorderRound
 }
 
 export const Thumbnail = styled.img<ImageProps>`
@@ -46,4 +46,4 @@ export const Thumbnail = styled.img<ImageProps>`
     css`
       border-bottom-right-radius: ${props.round?.lowerRight}px;
     `}
-`;
+`

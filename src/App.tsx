@@ -1,7 +1,7 @@
-import React, { StrictMode } from 'react';
-import './global.css';
-import ApplicationProvider from './providers/ApplicationProvider';
-import Routes from './Routes';
+import React, { StrictMode } from "react"
+import "./global.css"
+import ApplicationProvider from "./providers/ApplicationProvider"
+import Routes from "./Routes"
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <Routes />
       </ApplicationProvider>
     </StrictMode>
-  );
+  )
 }
 
-export default App;
+export default App

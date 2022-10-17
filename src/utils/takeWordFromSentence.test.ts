@@ -1,12 +1,12 @@
-import { takeWordFromSentence } from './takeWordFromSentence';
+import { takeWordFromSentence } from "./takeWordFromSentence"
 
-describe('takeWordFromSentence', () => {
+describe("takeWordFromSentence", () => {
   it('should return first 2 word "hello world"', () => {
-    const testString = 'hello world and people';
-    const testWordCount = 2;
+    const testString = "hello world and people"
+    const testWordCount = 2
 
-    const result = takeWordFromSentence(testString, testWordCount);
+    const result = takeWordFromSentence(testString, testWordCount)
 
-    expect(result).toEqual('hello world');
-  });
-});
+    expect(result).toEqual("hello world")
+  })
+})

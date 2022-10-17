@@ -1,82 +1,76 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 interface IFinderState {
-  search: string;
-  requestData: RequestData;
-  images: IImageResult[];
+  search: string
+  requestData: RequestData
+  images: IImageResult[]
 }
 
 export interface IImageResult {
-  accentColor: string;
-  contentSize: string;
-  contentUrl: string;
-  datePublished: string;
-  encodingFormat: string;
-  height: number;
-  hostPageDiscoveredDate: string;
-  hostPageDisplayUrl: string;
-  hostPageUrl: string;
-  imageId: string;
-  imageInsightsToken: string;
-  insightsMetadata: Record<string, number>;
-  isFamilyFriendly: boolean;
-  name: string;
+  accentColor: string
+  contentSize: string
+  contentUrl: string
+  datePublished: string
+  encodingFormat: string
+  height: number
+  hostPageDiscoveredDate: string
+  hostPageDisplayUrl: string
+  hostPageUrl: string
+  imageId: string
+  imageInsightsToken: string
+  insightsMetadata: Record<string, number>
+  isFamilyFriendly: boolean
+  name: string
   thumbnail: {
-    height: number;
-    width: number;
-  };
-  thumbnailUrl: string;
-  webSearchUrl: string;
-  width: number;
+    height: number
+    width: number
+  }
+  thumbnailUrl: string
+  webSearchUrl: string
+  width: number
 }
 
 interface RequestData {
-  processing: boolean;
-  resultsBySearch: string;
+  processing: boolean
+  resultsBySearch: string
 }
 
 const initialState = {
-  search: '',
+  search: "",
   requestData: {
     processing: false,
-    resultsBySearch: '',
+    resultsBySearch: "",
   },
   images: [],
-} as IFinderState;
+} as IFinderState
 
 const finderSlice = createSlice({
-  name: 'finder',
+  name: "finder",
   initialState,
   reducers: {
     setSearch: (state, action: PayloadAction<string>) => {
-      state.search = action.payload;
+      state.search = action.payload
     },
     setResults: (state, action: PayloadAction<IImageResult[]>) => {
-      state.images = action.payload;
+      state.images = action.payload
     },
     setRequestProcessing: (state, action: PayloadAction<boolean>) => {
-      state.requestData.processing = action.payload;
+      state.requestData.processing = action.payload
     },
     setResultsBySearch: (state, action: PayloadAction<string>) => {
-      state.requestData.resultsBySearch = action.payload;
+      state.requestData.resultsBySearch = action.payload
     },
     clearSearch: state => {
-      state.search = '';
-      state.requestData.resultsBySearch = '';
+      state.search = ""
+      state.requestData.resultsBySearch = ""
     },
     clearImages: state => {
-      state.images = [];
+      state.images = []
     },
   },
-});
+})
 
-export const {
-  setSearch,
-  setResults,
-  setRequestProcessing,
-  setResultsBySearch,
-  clearImages,
-  clearSearch,
-} = finderSlice.actions;
+export const { setSearch, setResults, setRequestProcessing, setResultsBySearch, clearImages, clearSearch } =
+  finderSlice.actions
 
-export default finderSlice;
+export default finderSlice

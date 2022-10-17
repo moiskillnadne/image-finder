@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components"
 
 interface PageContainer {
-  colorized?: string;
+  colorized?: string
 }
 
 export const PageContainer = styled.div<PageContainer>`
@@ -13,4 +13,4 @@ export const PageContainer = styled.div<PageContainer>`
     css`
       background-color: ${props.colorized};
     `}
-`;
+`

@@ -1,22 +1,22 @@
-import { useMemo } from 'react';
-import { Container } from '../../components/Container';
-import { PageContainer } from '../../components/Page';
-import { accent } from '../../constants/colors.constants';
-import { useGoogle } from '../../hooks/useGoogle';
-import { FinderHeader } from './FinderHeader';
-import { FinderView } from './FinderView';
+import { useMemo } from "react"
+import { Container } from "../../components/Container"
+import { PageContainer } from "../../components/Page"
+import { accent } from "../../constants/colors.constants"
+import { useGoogle } from "../../hooks/useGoogle"
+import { FinderHeader } from "./FinderHeader"
+import { FinderView } from "./FinderView"
 
 export const Finder = () => {
-  const { resultsBySearch } = useGoogle();
+  const { resultsBySearch } = useGoogle()
 
   const findByKeyword = useMemo(() => {
     return (
       <p>
-        {'Results by: '}
+        {"Results by: "}
         <span style={{ color: accent }}>{resultsBySearch}</span>
       </p>
-    );
-  }, [resultsBySearch]);
+    )
+  }, [resultsBySearch])
 
   return (
     <PageContainer>
@@ -27,13 +27,13 @@ export const Finder = () => {
           flex
           horizontalAlign="center"
           verticalAlign="center"
-          customHeight={{ value: 50, metric: 'px' }}
-          customWidth={{ value: 100, metric: '%' }}>
+          customHeight={{ value: 50, metric: "px" }}
+          customWidth={{ value: 100, metric: "%" }}>
           <Container>{findByKeyword}</Container>
         </Container>
       )}
 
       <FinderView />
     </PageContainer>
-  );
-};
+  )
+}

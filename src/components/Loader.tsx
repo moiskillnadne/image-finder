@@ -1,10 +1,10 @@
-import styled, { css } from 'styled-components';
-import { background, primary } from '../constants/colors.constants';
-import { SizeProp } from '../types/size.type';
-import { Container } from './Container';
+import styled, { css } from "styled-components"
+import { background, primary } from "../constants/colors.constants"
+import { SizeProp } from "../types/size.type"
+import { Container } from "./Container"
 
 interface LoaderElementProps {
-  size: SizeProp;
+  size: SizeProp
 }
 
 export const LoaderElement = styled.div<LoaderElementProps>`
@@ -33,12 +33,12 @@ export const LoaderElement = styled.div<LoaderElementProps>`
       width: ${props.size.value}${props.size.metric};
       height: ${props.size.value}${props.size.metric};
     `}
-`;
+`
 
 interface LoaderProps {
-  backgroundSize?: SizeProp;
-  loaderSize: SizeProp;
-  backgroundColor?: string;
+  backgroundSize?: SizeProp
+  loaderSize: SizeProp
+  backgroundColor?: string
 }
 
 export const Loader = ({ backgroundColor, backgroundSize, loaderSize }: LoaderProps) => {
@@ -47,11 +47,11 @@ export const Loader = ({ backgroundColor, backgroundSize, loaderSize }: LoaderPr
       flex
       verticalAlign="center"
       horizontalAlign="center"
-      colorized={backgroundColor ?? ''}
+      colorized={backgroundColor ?? ""}
       customHeight={backgroundSize}
       customWidth={backgroundSize}
-      style={{ position: 'absolute' }}>
+      style={{ position: "absolute" }}>
       <LoaderElement size={loaderSize} />
     </Container>
-  );
-};
+  )
+}

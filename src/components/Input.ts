@@ -1,11 +1,11 @@
-import styled, { css } from 'styled-components';
-import { font } from '../constants/colors.constants';
-import { BorderRound } from '../types/borderRound.type';
-import { SizeProp } from '../types/size.type';
+import styled, { css } from "styled-components"
+import { font } from "../constants/colors.constants"
+import { BorderRound } from "../types/borderRound.type"
+import { SizeProp } from "../types/size.type"
 
 interface InputProps {
-  round?: BorderRound;
-  customWidth?: SizeProp;
+  round?: BorderRound
+  customWidth?: SizeProp
 }
 
 export const Input = styled.input<InputProps>`
@@ -54,4 +54,4 @@ export const Input = styled.input<InputProps>`
     css`
       border-bottom-right-radius: ${props.round?.lowerRight}px;
     `}
-`;
+`

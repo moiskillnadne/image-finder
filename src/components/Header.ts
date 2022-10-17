@@ -1,16 +1,16 @@
-import styled, { css } from 'styled-components';
-import { font, primary } from '../constants/colors.constants';
+import styled, { css } from "styled-components"
+import { font, primary } from "../constants/colors.constants"
 
 interface Margin {
-  top?: number;
-  bottom?: number;
-  left?: number;
-  right?: number;
+  top?: number
+  bottom?: number
+  left?: number
+  right?: number
 }
 
 interface HeaderProps {
-  colorized?: boolean;
-  margin?: Margin;
+  colorized?: boolean
+  margin?: Margin
 }
 
 export const HeaderL = styled.h1<HeaderProps>`
@@ -46,4 +46,4 @@ export const HeaderL = styled.h1<HeaderProps>`
     css`
       margin-right: ${props.margin?.right}px;
     `}
-`;
+`

@@ -1,3 +1,3 @@
 export enum RoutesPath {
-  ImageFinderPage = '/home/image-finder',
+  ImageFinderPage = "/home/image-finder",
 }

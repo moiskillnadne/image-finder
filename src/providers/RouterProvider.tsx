@@ -1,11 +1,11 @@
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from "react-router-dom"
 
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren } from "react"
 
-type Props = PropsWithChildren<unknown>;
+type Props = PropsWithChildren<unknown>
 
 function RouteProvider({ children }: Props) {
-  return <BrowserRouter>{children}</BrowserRouter>;
+  return <BrowserRouter>{children}</BrowserRouter>
 }
 
-export default RouteProvider;
+export default RouteProvider

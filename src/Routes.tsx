@@ -1,9 +1,9 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { RoutesPath } from './constants/routes.constants';
-import { AuthenticationPage } from './modules/Authentication';
-import { Finder } from './modules/Finder';
-import { ProtectRoute } from './utils/components/ProtectRoute/ProtectRoute';
+import React from "react"
+import { Routes, Route } from "react-router-dom"
+import { RoutesPath } from "./constants/routes.constants"
+import { AuthenticationPage } from "./modules/Authentication"
+import { Finder } from "./modules/Finder"
+import { ProtectRoute } from "./utils/components/ProtectRoute/ProtectRoute"
 
 export default function () {
   return (
@@ -13,5 +13,5 @@ export default function () {
         <Route path={RoutesPath.ImageFinderPage} element={<Finder />} />
       </Route>
     </Routes>
-  );
+  )
 }

@@ -1,10 +1,10 @@
-import { Container } from '../../components/Container';
-import { defaultHorizontalPadding } from '../../constants/css.constants';
-import { useGoogle } from '../../hooks/useGoogle';
-import { FinderCard } from './FinderCard';
+import { Container } from "../../components/Container"
+import { defaultHorizontalPadding } from "../../constants/css.constants"
+import { useGoogle } from "../../hooks/useGoogle"
+import { FinderCard } from "./FinderCard"
 
 export const FinderView = () => {
-  const { images } = useGoogle();
+  const { images } = useGoogle()
 
   return (
     <Container
@@ -23,5 +23,5 @@ export const FinderView = () => {
           <FinderCard key={imageItem.imageId} url={imageItem.contentUrl} name={imageItem.name} />
         ))}
     </Container>
-  );
-};
+  )
+}

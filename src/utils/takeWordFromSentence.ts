@@ -1,12 +1,12 @@
 export const takeWordFromSentence = (sentence: string, countOfWord: number): string => {
   return sentence
-    .split(' ')
+    .split(" ")
     .reduce((acc, word) => {
       if (acc.length < countOfWord) {
-        acc.push(word);
+        acc.push(word)
       }
 
-      return acc;
+      return acc
     }, [] as string[])
-    .join(' ');
-};
+    .join(" ")
+}

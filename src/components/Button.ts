@@ -1,9 +1,9 @@
-import { font } from './../constants/colors.constants';
-import styled, { css } from 'styled-components';
-import { BorderRound } from '../types/borderRound.type';
+import { font } from "./../constants/colors.constants"
+import styled, { css } from "styled-components"
+import { BorderRound } from "../types/borderRound.type"
 
 interface ButtonProps {
-  round?: BorderRound;
+  round?: BorderRound
 }
 
 export const Button = styled.button<ButtonProps>`
@@ -44,4 +44,4 @@ export const Button = styled.button<ButtonProps>`
     css`
       border-bottom-right-radius: ${props.round?.lowerRight}px;
     `}
-`;
+`
