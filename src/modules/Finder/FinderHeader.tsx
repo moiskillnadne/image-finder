@@ -10,12 +10,14 @@ import { useGoogle } from '../../hooks/useGoogle';
 
 export const FinderHeader = () => {
   const { user, clearUser } = useAuth();
-  const { search, saveSearch, changeRequestProcessingStatus } = useGoogle();
+  const { search, saveSearch, changeRequestProcessingStatus, clearSearchAndImagesState } =
+    useGoogle();
 
   const greetings = useMemo(() => `Hello, ${user}`, [user]);
 
   const onSignoutClick = () => {
     clearUser();
+    clearSearchAndImagesState();
   };
 
   const onSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {

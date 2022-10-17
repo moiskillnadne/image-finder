@@ -60,10 +60,23 @@ const finderSlice = createSlice({
     setResultsBySearch: (state, action: PayloadAction<string>) => {
       state.requestData.resultsBySearch = action.payload;
     },
+    clearSearch: state => {
+      state.search = '';
+      state.requestData.resultsBySearch = '';
+    },
+    clearImages: state => {
+      state.images = [];
+    },
   },
 });
 
-export const { setSearch, setResults, setRequestProcessing, setResultsBySearch } =
-  finderSlice.actions;
+export const {
+  setSearch,
+  setResults,
+  setRequestProcessing,
+  setResultsBySearch,
+  clearImages,
+  clearSearch,
+} = finderSlice.actions;
 
 export default finderSlice;

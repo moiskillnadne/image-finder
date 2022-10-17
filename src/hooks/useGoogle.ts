@@ -1,6 +1,8 @@
 import { useAppSelector } from './useAppSelector';
 import { useEffect, useCallback } from 'react';
 import {
+  clearImages,
+  clearSearch,
   IImageResult,
   setRequestProcessing,
   setResults,
@@ -62,6 +64,11 @@ export const useGoogle = () => {
     [dispath, changeRequestProcessingStatus],
   );
 
+  const clearSearchAndImagesState = useCallback(() => {
+    dispath(clearSearch());
+    dispath(clearImages());
+  }, [dispath]);
+
   useEffect(() => {
     if (requestProcessing) {
       findAndSaveImageBySearchParams(search, saveImageResults);
@@ -74,5 +81,6 @@ export const useGoogle = () => {
     images,
     saveSearch,
     changeRequestProcessingStatus,
+    clearSearchAndImagesState,
   };
 };
