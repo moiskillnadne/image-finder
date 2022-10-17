@@ -12,7 +12,8 @@ Config: CRACO
 
 In the project directory, you can run:
 
-### If I had more time what I would like to implement more:
+### If I had more time I would like to implement more:
+
 - Animations
 - Improve image Loader
 - Implement error handler for images
